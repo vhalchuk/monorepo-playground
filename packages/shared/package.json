@@ -1,13 +1,18 @@
 {
   "name": "@my-repo/shared",
   "version": "1.0.0",
-  "dependencies": {
-    "lodash": "^4.17.21"
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf ./dist",
+    "compile": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
-    "typescript": "~5.8.2"
-  },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": ["dist", "src"]
+    "rimraf": "~6.0.0",
+    "typescript": "~4.9.0"
+  }
 }

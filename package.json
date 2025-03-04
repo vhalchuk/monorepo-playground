@@ -1,3 +1,16 @@
 {
-  "name": "monorepo-playground"
+  "name": "monorepo-playground",
+  "description": "Template for setting up a TypeScript monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "clean": "npm run clean --workspaces",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "~4.9.0"
+  }
 }

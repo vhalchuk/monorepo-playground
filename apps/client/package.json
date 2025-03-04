@@ -1,7 +1,21 @@
 {
   "name": "@my-repo/client",
+  "description": "Example of using webpack in a TS monorepo",
+  "private": true,
   "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "webpack"
+  },
   "dependencies": {
-    "@my-repo/shared": "workspace:*"
+    "@my-repo/shared": "*"
+  },
+  "devDependencies": {
+    "rimraf": "~6.0.0",
+    "webpack": "~5.98.0",
+    "webpack-cli": "~6.0.0",
+    "ts-loader": "~9.5.0",
+    "tsconfig-paths-webpack-plugin": "~4.2.0",
+    "typescript": "~4.9.0"
   }
 }
