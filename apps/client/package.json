@@ -1,0 +1,7 @@
+{
+  "name": "@my-repo/client",
+  "version": "1.0.0",
+  "dependencies": {
+    "@my-repo/shared": "workspace:*"
+  }
+}
