@@ -1,11 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
+const path = require("node:path");
 
 module.exports = {
   entry: "./src/index.ts",
   mode: "development",
   output: {
-    filename: "bundle.js",
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
+    hashDigestLength: 8,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -20,4 +24,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new WebpackAssetsManifest({ publicPath: true, entrypoints: true }),
+  ]
 };

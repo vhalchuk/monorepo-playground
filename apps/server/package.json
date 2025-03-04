@@ -11,10 +11,12 @@
     "start": "node ./dist/index.js"
   },
   "dependencies": {
-    "@my-repo/shared": "*"
+    "@my-repo/shared": "*",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/node": "~22.13.0",
+    "@types/express": "^4.17.21",
     "ts-node": "~10.9.0",
     "tsconfig-paths": "~4.2.0",
     "typescript": "~4.9.0"

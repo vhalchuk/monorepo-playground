@@ -1,3 +1,3 @@
-import { foo } from "@my-repo//shared";
+import { foo } from "@my-repo/shared";
 
-foo();
+console.log(foo());
