@@ -1,6 +1,6 @@
 import express from "express";
 import router from "./router";
-import {clientDist} from "./paths";
+import { clientDist } from "./paths";
 
 const port = 8080;
 const app = express();
