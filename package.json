@@ -7,7 +7,7 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "concurrently --names \"WEBPACK,SERVER\" --prefix \"[{name}]\" --prefix-colors \"blue,magenta\" \"npm run dev --workspace @my-repo/client\" \"npm run dev --workspace @my-repo/server\"",
+    "dev": "npm run dev --workspace @my-repo/server",
     "clean": "npm run --if-present clean --workspaces",
     "build": "npm run --if-present build --workspaces",
     "serve": "npm run start --workspace @my-repo/server"

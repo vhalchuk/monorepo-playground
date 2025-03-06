@@ -14,12 +14,14 @@
     "@my-repo/shared": "*",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
-    "webpack-dev-middleware": "^7.4.2"
+    "webpack-dev-middleware": "^7.4.2",
+    "webpack-hot-middleware": "^2.26.1"
   },
   "devDependencies": {
     "@types/node": "~22.13.0",
     "@types/express": "^4.17.21",
     "@types/lodash": "^4.17.12",
+    "@types/webpack-hot-middleware": "^2.25.9",
     "tsx": "^4.19.3",
     "tsconfig-paths": "~4.2.0",
     "typescript": "~4.9.0"

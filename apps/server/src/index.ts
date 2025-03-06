@@ -3,6 +3,7 @@ import router from "./router";
 import { clientDist } from "./paths";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
+import webpackHotMiddleware from "webpack-hot-middleware";
 
 const port = 8080;
 const app = express();
@@ -18,7 +19,10 @@ if (process.env.NODE_ENV === "development") {
         publicPath: "/",
         stats: { colors: true }
       })
-    )
+    );
+    app.use(webpackHotMiddleware(compiler, {
+        path: "/__webpack_hmr"
+    }));
 }
 
 app.use(router);

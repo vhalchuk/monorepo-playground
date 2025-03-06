@@ -6,4 +6,9 @@ import { foo } from "@my-repo/shared";
 console.log(foo());
 console.log("Now:", now());
 
-createRoot(document.getElementById("root")!).render(createElement("h1", null, "Hello World!"))
+const rootElement = document.getElementById("root")!;
+const root = createRoot(rootElement);
+root.render(createElement("h1", null, "Hello World!"));
+
+// @ts-ignore
+if (module.hot) module.hot.accept();

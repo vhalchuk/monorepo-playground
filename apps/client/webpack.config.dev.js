@@ -1,10 +1,14 @@
 const path = require("node:path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+import { HotModuleReplacementPlugin } from "webpack";
 
 module.exports = {
     mode: "development",
     devtool: "inline-source-map",
-    entry: path.resolve(__dirname, "src/index.ts"),
+    entry: [
+        "webpack-hot-middleware/client",
+        path.resolve(__dirname, "src/index.ts")
+    ],
     output: {
         publicPath: "/",
         filename: "bundle.js",
@@ -23,4 +27,7 @@ module.exports = {
         },
       ],
     },
+    plugins: [
+        new HotModuleReplacementPlugin()
+    ]
 }

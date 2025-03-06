@@ -4,7 +4,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm run build -- --env watch",
     "clean": "rimraf dist",
     "build": "npm run clean && webpack",
     "analyze": "npm run build -- --env analyze"
