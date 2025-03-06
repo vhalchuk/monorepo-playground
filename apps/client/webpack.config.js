@@ -20,7 +20,7 @@ module.exports = (env = {}) => {
 
   return {
     watch: !!env.watch,
-    entry: "./src/index.ts",
+    entry: path.resolve(__dirname, "src/index.tsx"),
     mode: "production",
     optimization: {
       minimizer: [new TerserPlugin()]
@@ -31,15 +31,26 @@ module.exports = (env = {}) => {
       hashDigestLength: 8,
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
-      plugins: [new TsconfigPathsPlugin()],
+      extensions: [".js", ".ts", ".tsx"],
+      plugins: [new TsconfigPathsPlugin()]
     },
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          loader: "ts-loader",
-          options: { configFile: "tsconfig.build.json" },
+          exclude: /node_modules/,
+          loader: "babel-loader",
+              options: {
+                presets: [
+                  "@babel/preset-env",
+                  "@babel/preset-typescript",
+                  [
+                    "@babel/preset-react",
+                    { runtime: "automatic" } // let React be automatically imported
+                  ],
+                ],
+                plugins: ["lodash"],
+              },
         },
       ],
     },

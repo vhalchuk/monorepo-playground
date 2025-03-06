@@ -7,7 +7,7 @@ module.exports = {
     devtool: "inline-source-map",
     entry: [
         "webpack-hot-middleware/client",
-        path.resolve(__dirname, "src/index.ts")
+        path.resolve(__dirname, "src/index.tsx")
     ],
     output: {
         publicPath: "/",
@@ -15,15 +15,26 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
+      extensions: [".js", ".ts", ".tsx"],
       plugins: [new TsconfigPathsPlugin()],
     },
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          loader: "ts-loader",
-          options: { configFile: path.resolve(__dirname, "tsconfig.build.json") },
+          exclude: /node_modules/,
+          loader: "babel-loader",
+              options: {
+                presets: [
+                  "@babel/preset-env",
+                  "@babel/preset-typescript",
+                  [
+                    "@babel/preset-react",
+                    { runtime: "automatic" } // let React be automatically imported
+                  ],
+                ],
+                plugins: ["lodash"],
+              },
         },
       ],
     },
