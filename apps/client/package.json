@@ -4,9 +4,10 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "dev": "npm run build -- --env watch",
     "clean": "rimraf dist",
     "build": "npm run clean && webpack",
-    "build:analyze": "npm run build -- --env analyze"
+    "analyze": "npm run build -- --env analyze"
   },
   "dependencies": {
     "@my-repo/shared": "*",

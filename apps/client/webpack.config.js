@@ -19,6 +19,7 @@ module.exports = (env = {}) => {
   }
 
   return {
+    watch: !!env.watch,
     entry: "./src/index.ts",
     mode: "production",
     optimization: {
