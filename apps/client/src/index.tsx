@@ -1,14 +1,16 @@
-import { createRoot } from "react-dom/client";
-import { now } from "lodash";
-import { foo } from "@my-repo/shared";
+/// <reference types="webpack-env" /> - provides types for `global.module` object with HMR API
+import { createRoot, type Root } from "react-dom/client";
 import App from "./App";
 
-console.log(foo());
-console.log("Now:", now());
-
 const rootElement = document.getElementById("root")!;
-const root = createRoot(rootElement);
+const root: Root = module.hot?.data?.root ?? createRoot(rootElement);
+
 root.render(<App />);
 
-// @ts-ignore
-if (module.hot) module.hot.accept();
+if (module.hot) {
+  module.hot.accept();
+  module.hot.dispose(data => {
+    console.log("root saved")
+    data.root = root;
+  });
+}

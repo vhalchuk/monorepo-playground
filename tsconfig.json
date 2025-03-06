@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@my-repo/*": ["packages/*"]
+      "@my-repo/*": ["packages/*/src"]
     },
     "noEmit": true
   }
