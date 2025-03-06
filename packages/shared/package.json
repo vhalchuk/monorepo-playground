@@ -9,11 +9,10 @@
   ],
   "scripts": {
     "clean": "rimraf ./dist",
-    "build:types": "tsc --project tsconfig.build.json",
+    "build:types": "tsc --project tsconfig.build.types.json",
     "build:esm": "babel src --extensions '.ts' --config-file ./babel.config.esm.json --out-dir dist/esm",
     "build:cjs": "babel src --extensions '.ts' --config-file ./babel.config.cjs.json --out-dir dist/cjs",
-    "build": "npm run clean && npm run build:types && npm run build:esm && npm run build:cjs",
-    "dev": "concurrently --names \"esm,cjs\" --prefix \"[{name}]\" --prefix-colors \"blue,magenta\" \"npm run build:esm -- --watch\" \"npm run build:cjs -- --watch\""
+    "build": "npm run clean && npm run build:types && npm run build:cjs"
   },
   "dependencies": {
     "lodash-es": "^4.17.21",

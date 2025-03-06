@@ -7,8 +7,9 @@
     "apps/*"
   ],
   "scripts": {
-    "clean": "npm run clean --workspaces",
-    "build": "npm run build --workspaces"
+    "clean": "npm run --if-present clean --workspaces",
+    "build": "npm run --if-present build --workspaces",
+    "serve": "npm run start --workspace @my-repo/server"
   },
   "devDependencies": {
     "typescript": "~4.9.0"
