@@ -7,6 +7,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
     console.log("Request received at:", now());
+    console.log("shared foo()", foo())
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
@@ -15,7 +16,7 @@ router.get("/", (req, res) => {
         .status(200)
         .send(`
             <script src="${getClientManifest().entrypoints.main.assets.js}" type="text/javascript" defer></script>
-            <h1>${foo()}</h1>
+            <div id="root"></div>
         `.trim());
 })
 
