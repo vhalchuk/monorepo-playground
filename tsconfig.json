@@ -1,7 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "./packages/a" },
-    { "path": "./packages/b" }
+    { "path": "./apps/client" },
+    { "path": "./packages/shared" }
   ]
 }

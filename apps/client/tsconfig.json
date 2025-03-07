@@ -23,7 +23,7 @@
 
     /* Resolve to packages' source code: */
     "paths": {
-      "@my-repo/b": ["../b/src/index.ts"]
+      "@my-repo/shared": ["../../packages/shared/src/index.ts"]
     }
   }
 }

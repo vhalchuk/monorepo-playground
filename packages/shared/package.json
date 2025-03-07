@@ -1,5 +1,5 @@
 {
-  "name": "@my-repo/b",
+  "name": "@my-repo/shared",
   "main": "dist/cjs/index.js",
   "exports": {
     ".": {

@@ -22,7 +22,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            "@my-repo/*": path.resolve(__dirname, "../*/src/index.ts")
+            /* resolves any package's source code within <root>/packages directory */
+            "@my-repo/*": path.resolve(__dirname, "../../packages/*/src/index.ts")
         }
     }
 }

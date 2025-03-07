@@ -1,5 +1,5 @@
 {
-  "name": "@my-repo/a",
+  "name": "@my-repo/client",
   "type": "module",
   "scripts": {
     "clean": "rimraf dist",
@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@my-repo/b": "*",
+    "@my-repo/shared": "*",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
