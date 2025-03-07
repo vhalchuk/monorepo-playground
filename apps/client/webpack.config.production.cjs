@@ -1,8 +1,11 @@
 const path = require("node:path");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 module.exports = (env = {}) => {
-    const plugins = [];
+    const plugins = [
+        new WebpackAssetsManifest({ entrypoints: true }),
+    ];
 
     if (env.analyze) {
         plugins.push(
@@ -18,7 +21,10 @@ module.exports = (env = {}) => {
         mode: "production",
         devtool: "source-map",
         output: {
-            filename: "bundle.production.js",
+            path: process.env.STATIC_ASSETS_PATH ?? path.resolve(__dirname, "dist"),
+            filename: "[name].[contenthash].js",
+            hashDigestLength: 8,
+            clean: true
         },
         optimization: {
             minimize: false // TODO: remove once ready for production

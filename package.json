@@ -7,7 +7,13 @@
     "apps/*"
   ],
   "scripts": {
-    "clean": "npm run clean --workspaces",
-    "build": "npm run build --workspaces"
+    "clean": "npm run clean --workspaces --if-present",
+    "build:packages": "npm run build -w @my-repo/shared",
+    "build:client": "cross-env STATIC_ASSETS_PATH=$(node -e \"console.log(require('path').resolve('apps/server/public'))\") npm run build -w @my-repo/client",
+    "build:server": "npm run build -w @my-repo/server",
+    "build": "npm run build:packages && npm run build:client && npm run build:server"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
