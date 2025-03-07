@@ -3,13 +3,5 @@
   "references": [
     { "path": "./packages/a" },
     { "path": "./packages/b" }
-  ],
-  "compilerOptions": {
-    "composite": true,
-    "baseUrl": ".",
-    "paths": {
-      "b/*": ["packages/b/src/*"]
-    }
-  },
-  "include": ["packages/**/*"]
+  ]
 }

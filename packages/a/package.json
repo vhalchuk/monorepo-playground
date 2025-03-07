@@ -4,11 +4,17 @@
   "scripts": {
     "build:dev": "webpack -c webpack.config.dev.cjs",
     "build:production": "webpack -c webpack.config.production.cjs",
-    "build": "npm run build:dev && npm run build:production"
+    "build": "npm run build:dev && npm run build:production",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@my-repo/b": "*",
+    "@my-repo/b": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
     "webpack": "^5.98.0",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "babel-loader": "^10.0.0",
+    "@babel/preset-typescript": "^7.26.0"
   }
 }
