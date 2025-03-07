@@ -1,1 +1,1 @@
-module.exports = "src/index.js";
+module.exports = "IMPORTED FROM src/index.js";

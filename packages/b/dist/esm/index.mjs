@@ -1,1 +1,1 @@
-export default "dist/esm/index.mjs";
+export default "IMPORTED FROM dist/esm/index.mjs";

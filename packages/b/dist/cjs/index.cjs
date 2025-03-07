@@ -1,1 +1,1 @@
-module.exports = "dist/cjs/index.cjs";
+module.exports = "IMPORTED FROM dist/cjs/index.cjs";
