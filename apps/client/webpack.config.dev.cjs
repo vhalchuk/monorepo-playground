@@ -10,11 +10,14 @@ module.exports = {
         filename: "[name].js",
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json'],
+        extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
             /* resolves any package's source code within <root>/packages directory */
-            "@my-repo/*": path.resolve(__dirname, "../../packages/*/src/index.ts")
-        }
+            "@my-repo/*": path.resolve(
+                __dirname,
+                "../../packages/*/src/index.ts"
+            ),
+        },
     },
     module: {
         rules: [
@@ -27,8 +30,8 @@ module.exports = {
                         "@babel/preset-typescript",
                         [
                             "@babel/preset-react",
-                            {runtime: "automatic"} // let React be automatically imported
-                        ]
+                            { runtime: "automatic" }, // let React be automatically imported
+                        ],
                     ],
                 },
             },
@@ -39,17 +42,15 @@ module.exports = {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    chunks: "all"
+                    name: "vendor",
+                    chunks: "all",
                 },
             },
         },
     },
-    plugins: [
-        new WebpackAssetsManifest({entrypoints: true}),
-    ],
+    plugins: [new WebpackAssetsManifest({ entrypoints: true })],
     devServer: {
         port: 4000,
         hot: true,
     },
-}
+};

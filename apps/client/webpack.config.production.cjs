@@ -1,17 +1,15 @@
 const path = require("node:path");
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 module.exports = (env = {}) => {
-    const plugins = [
-        new WebpackAssetsManifest({entrypoints: true}),
-    ];
+    const plugins = [new WebpackAssetsManifest({ entrypoints: true })];
 
     if (env.analyze) {
         plugins.push(
             new BundleAnalyzerPlugin({
-                analyzerMode: 'static',
-                openAnalyzer: true
+                analyzerMode: "static",
+                openAnalyzer: true,
             })
         );
     }
@@ -21,13 +19,13 @@ module.exports = (env = {}) => {
         mode: "production",
         devtool: "source-map",
         resolve: {
-            extensions: ['.ts', '.tsx', '.js', '.json'],
+            extensions: [".ts", ".tsx", ".js", ".json"],
         },
         output: {
             path: process.env.OUTPUT_PATH ?? path.resolve(__dirname, "dist"),
             filename: "[name].[contenthash].js",
             hashDigestLength: 8,
-            clean: true
+            clean: true,
         },
         module: {
             rules: [
@@ -40,16 +38,14 @@ module.exports = (env = {}) => {
                             "@babel/preset-typescript",
                             [
                                 "@babel/preset-react",
-                                {runtime: "automatic"} // let React be automatically imported
-                            ]
+                                { runtime: "automatic" }, // let React be automatically imported
+                            ],
                         ],
-                        plugins: [
-                            "lodash"
-                        ],
+                        plugins: ["lodash"],
                     },
                 },
             ],
         },
-        plugins
-    }
-}
+        plugins,
+    };
+};

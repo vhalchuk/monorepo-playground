@@ -1,5 +1,5 @@
-import {capitalize} from "lodash";
+import { capitalize } from "lodash";
 
 export const foo = () => {
-    return capitalize("bar")
-}
+    return capitalize("bar");
+};

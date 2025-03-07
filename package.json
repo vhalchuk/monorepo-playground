@@ -1,25 +1,25 @@
 {
-  "name": "monorepo-playground",
-  "description": "Template for setting up a TypeScript monorepo",
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
-  "scripts": {
-    "dev": "concurrently --names \"CLIENT,SERVER\" --prefix-colors \"blue,magenta\" \"npm run dev -w @my-repo/client\" \"npm run dev -w @my-repo/server\"",
-    "format": "prettier --ignore-unknown --write .",
-    "format:check": "prettier --ignore-unknown --check .",
-    "clean": "npm run clean --workspaces --if-present",
-    "build:packages": "npm run build -w @my-repo/shared",
-    "build:client": "cross-env OUTPUT_PATH=$(node -e \"console.log(require('path').resolve('apps/server/public'))\") npm run build -w @my-repo/client",
-    "build:server": "npm run build -w @my-repo/server",
-    "build": "npm run build:packages && npm run build:client && npm run build:server",
-    "serve": "npm run start --workspace @my-repo/server"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "concurrently": "^9.1.2",
-    "prettier": "^3.5.3"
-  }
+    "name": "monorepo-playground",
+    "description": "Template for setting up a TypeScript monorepo",
+    "private": true,
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "concurrently --names \"CLIENT,SERVER\" --prefix-colors \"blue,magenta\" \"npm run dev -w @my-repo/client\" \"npm run dev -w @my-repo/server\"",
+        "format": "prettier --ignore-unknown --write .",
+        "format:check": "prettier --ignore-unknown --check .",
+        "clean": "npm run clean --workspaces --if-present",
+        "build:packages": "npm run build -w @my-repo/shared",
+        "build:client": "cross-env OUTPUT_PATH=$(node -e \"console.log(require('path').resolve('apps/server/public'))\") npm run build -w @my-repo/client",
+        "build:server": "npm run build -w @my-repo/server",
+        "build": "npm run build:packages && npm run build:client && npm run build:server",
+        "serve": "npm run start --workspace @my-repo/server"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "concurrently": "^9.1.2",
+        "prettier": "^3.5.3"
+    }
 }

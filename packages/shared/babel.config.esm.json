@@ -1,9 +1,7 @@
 {
-  "presets": [
-    ["@babel/preset-env", { "modules": false }],
-    "@babel/preset-typescript"
-  ],
-  "plugins": [
-    "lodash"
-  ]
+    "presets": [
+        ["@babel/preset-env", { "modules": false }],
+        "@babel/preset-typescript"
+    ],
+    "plugins": ["lodash"]
 }

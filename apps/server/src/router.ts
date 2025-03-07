@@ -8,14 +8,12 @@ router.get("/", async (req, res) => {
     const scripts = manifest.entrypoints.main.assets.js;
 
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
+    res.setHeader("Content-Type", "text/html");
 
-    res
-        .status(200)
-        .send(`
+    res.status(200).send(`
             ${scripts.map((src) => `<script src="${src}" type="text/javascript" defer></script>`).join("\n")}
             <div id="root"></div>
         `);
-})
+});
 
 export default router;

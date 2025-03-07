@@ -1,30 +1,30 @@
 {
-  "name": "@my-repo/server",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
-    "clean:dist": "rimraf ./dist",
-    "clean:public": "rimraf ./public",
-    "clean": "npm run clean:dist && npm run clean:public",
-    "build": "npm run clean:dist && babel src --extensions '.ts' --out-dir dist",
-    "start": "cross-env NODE_ENV=production node ./dist/index.js",
-    "type-check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@my-repo/shared": "*",
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "http-proxy-middleware": "^3.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "~22.13.0",
-    "@types/express": "^4.17.21",
-    "@types/lodash": "^4.17.12",
-    "typescript": "^5.8.2",
-    "tsx": "^4.19.3",
-    "@babel/core": "^7.26.9",
-    "@babel/cli": "^7.26.4",
-    "@babel/preset-typescript": "^7.26.0",
-    "@babel/preset-env": "^7.26.9",
-    "cross-env": "^7.0.3"
-  }
+    "name": "@my-repo/server",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
+        "clean:dist": "rimraf ./dist",
+        "clean:public": "rimraf ./public",
+        "clean": "npm run clean:dist && npm run clean:public",
+        "build": "npm run clean:dist && babel src --extensions '.ts' --out-dir dist",
+        "start": "cross-env NODE_ENV=production node ./dist/index.js",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@my-repo/shared": "*",
+        "express": "^4.18.2",
+        "lodash": "^4.17.21",
+        "http-proxy-middleware": "^3.0.3"
+    },
+    "devDependencies": {
+        "@types/node": "~22.13.0",
+        "@types/express": "^4.17.21",
+        "@types/lodash": "^4.17.12",
+        "typescript": "^5.8.2",
+        "tsx": "^4.19.3",
+        "@babel/core": "^7.26.9",
+        "@babel/cli": "^7.26.4",
+        "@babel/preset-typescript": "^7.26.0",
+        "@babel/preset-env": "^7.26.9",
+        "cross-env": "^7.0.3"
+    }
 }

@@ -1,13 +1,13 @@
 {
-  "sourceMaps": true,
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": { "node": "current" },
-        "modules": "commonjs"
-      }
-    ],
-    "@babel/preset-typescript"
-  ]
+    "sourceMaps": true,
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": { "node": "current" },
+                "modules": "commonjs"
+            }
+        ],
+        "@babel/preset-typescript"
+    ]
 }

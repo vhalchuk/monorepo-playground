@@ -8,8 +8,8 @@ const root: Root = module.hot?.data?.root ?? createRoot(rootElement);
 root.render(<App />);
 
 if (module.hot) {
-  module.hot.accept();
-  module.hot.dispose(data => {
-    data.root = root;
-  });
+    module.hot.accept();
+    module.hot.dispose((data) => {
+        data.root = root;
+    });
 }
