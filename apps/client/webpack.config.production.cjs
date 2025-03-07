@@ -1,10 +1,10 @@
 const path = require("node:path");
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 module.exports = (env = {}) => {
     const plugins = [
-        new WebpackAssetsManifest({ entrypoints: true }),
+        new WebpackAssetsManifest({entrypoints: true}),
     ];
 
     if (env.analyze) {
@@ -17,7 +17,7 @@ module.exports = (env = {}) => {
     }
 
     return {
-        entry: path.resolve(__dirname, "src/index.ts"),
+        entry: path.resolve(__dirname, "src/index.tsx"),
         mode: "production",
         devtool: "source-map",
         output: {
@@ -26,25 +26,29 @@ module.exports = (env = {}) => {
             hashDigestLength: 8,
             clean: true
         },
-        optimization: {
-            minimize: false // TODO: remove once ready for production
+        resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.json'],
         },
         module: {
-          rules: [
-            {
-              test: /\.tsx?$/,
-              exclude: /node_modules/,
-              loader: "babel-loader",
-                  options: {
-                    presets: [
-                      "@babel/preset-typescript",
-                    ],
-                    plugins: [
-                      "lodash"
-                    ],
-                  },
-            },
-          ],
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    exclude: /node_modules/,
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "@babel/preset-typescript",
+                            [
+                                "@babel/preset-react",
+                                {runtime: "automatic"} // let React be automatically imported
+                            ]
+                        ],
+                        plugins: [
+                            "lodash"
+                        ],
+                    },
+                },
+            ],
         },
         plugins
     }
