@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "clean": "npm run clean --workspaces",
     "build": "npm run build --workspaces"
   }
 }
