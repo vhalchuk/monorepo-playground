@@ -1,3 +1,5 @@
-import b from "@my-repo/b";
+import {foo} from "@my-repo/b";
+import {capitalize} from "lodash";
 
-console.log(b)
+console.log(foo)
+console.log(capitalize("hello world"))

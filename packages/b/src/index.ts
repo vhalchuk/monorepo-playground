@@ -1,1 +1,5 @@
-export default "IMPORTED FROM src/index.ts";
+import {capitalize} from "lodash";
+
+export const foo = () => {
+    return capitalize("bar")
+}
