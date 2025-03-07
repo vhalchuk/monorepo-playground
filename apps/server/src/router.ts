@@ -4,7 +4,9 @@ import loadManifest from "./loadManifest";
 const router = Router();
 
 router.get("/", (req, res) => {
-    const script = loadManifest().entrypoints.main.assets.js[0];
+    const script = process.env.NODE_ENV === "development"
+        ? "http://localhost:4000/bundle.js"
+        : loadManifest().entrypoints.main.assets.js[0];
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');

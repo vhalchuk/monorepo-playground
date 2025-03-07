@@ -3,8 +3,10 @@ const path = require("node:path");
 module.exports = {
     entry: path.resolve(__dirname, "src/index.ts"),
     mode: "development",
+    devtool: "inline-source-map",
     output: {
-        filename: "bundle.development.js",
+        publicPath: "/",
+        filename: "bundle.js",
     },
     module: {
       rules: [
@@ -25,5 +27,9 @@ module.exports = {
             /* resolves any package's source code within <root>/packages directory */
             "@my-repo/*": path.resolve(__dirname, "../../packages/*/src/index.ts")
         }
-    }
+    },
+    devServer: {
+        port: 4000,
+        hot: true,
+    },
 }
