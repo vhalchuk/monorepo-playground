@@ -20,6 +20,9 @@ module.exports = (env = {}) => {
         devtool: "source-map",
         resolve: {
             extensions: [".ts", ".tsx", ".js", ".json"],
+            alias: {
+                "@/*": path.resolve(__dirname, "src/*"),
+            },
         },
         output: {
             path: process.env.OUTPUT_PATH ?? path.resolve(__dirname, "dist"),

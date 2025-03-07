@@ -12,6 +12,7 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
+            "@/*": path.resolve(__dirname, "src/*"),
             /* resolves any package's source code within <root>/packages directory */
             "@my-repo/*": path.resolve(
                 __dirname,
