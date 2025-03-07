@@ -1,3 +1,10 @@
-import {foo} from "@my-repo/shared";
+import express from "express";
 
-console.log(foo());
+const port = 8080;
+const app = express();
+
+app.use(express.static("public"));
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
