@@ -1,0 +1,1 @@
+export default "IMPORTED FROM src/index.ts";

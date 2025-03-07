@@ -1,1 +1,0 @@
-module.exports = "IMPORTED FROM src/index.js";

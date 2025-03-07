@@ -22,7 +22,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            "@my-repo/*": path.resolve(__dirname, "../*/src/index.js")
+            "@my-repo/*": path.resolve(__dirname, "../*/src/index.ts")
         }
     }
 }
