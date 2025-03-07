@@ -1,2 +1,3 @@
 TODO:
-- [ ] Extend root tsconfig.json
+- [ ] Extend root `tsconfig.json`
+- [ ] Extend base webpack config
