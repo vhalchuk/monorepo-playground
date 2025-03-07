@@ -1,1 +1,0 @@
-export default "IMPORTED FROM dist/esm/index.mjs";
