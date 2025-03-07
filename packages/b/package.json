@@ -1,0 +1,10 @@
+ {
+  "name": "b",
+  "main": "dist/cjs/index.js",
+  "exports": {
+     ".": {
+       "import": "./dist/esm/index.mjs",
+       "require": "./dist/cjs/index.cjs"
+     }
+  }
+ }

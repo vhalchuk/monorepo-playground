@@ -1,0 +1,1 @@
+module.exports = "dist/cjs/index.cjs";

@@ -1,11 +1,15 @@
 {
-  "extends": "./tsconfig.build.json",
-
+  "files": [],
+  "references": [
+    { "path": "./packages/a" },
+    { "path": "./packages/b" }
+  ],
   "compilerOptions": {
+    "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@my-repo/*": ["packages/*/src"]
-    },
-    "noEmit": true
-  }
+      "b/*": ["packages/b/src/*"]
+    }
+  },
+  "include": ["packages/**/*"]
 }

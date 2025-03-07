@@ -3,17 +3,6 @@
   "description": "Template for setting up a TypeScript monorepo",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
-  "scripts": {
-    "dev": "npm run dev --workspace @my-repo/server",
-    "clean": "npm run --if-present clean --workspaces",
-    "build": "npm run --if-present build --workspaces",
-    "serve": "npm run start --workspace @my-repo/server"
-  },
-  "devDependencies": {
-    "typescript": "~4.9.0",
-    "concurrently": "^9.1.1"
-  }
+    "packages/*"
+  ]
 }
