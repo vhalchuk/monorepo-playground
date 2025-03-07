@@ -1,19 +1,7 @@
 {
+    "extends": "../../tsconfig.json",
+
     "compilerOptions": {
-        /* Base Options: */
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "target": "es2022",
-        "allowJs": true,
-        "resolveJsonModule": true,
-        "moduleDetection": "force",
-        "isolatedModules": true,
-
-        /* Strictness */
-        "strict": true,
-        "noUncheckedIndexedAccess": true,
-        "noImplicitOverride": true,
-
         /* If NOT transpiling with TypeScript: */
         "module": "preserve",
         "noEmit": true,
@@ -21,9 +9,8 @@
         /* If your code doesn't run in the DOM: */
         "lib": ["es2022"],
 
-        /* Resolve to packages' source code: */
         "paths": {
-            "@my-repo/shared": ["../../packages/shared/src/index.ts"]
+            "@/*": ["./src/*"]
         }
     }
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import type { Request, Response } from "express";
-import router from "./router";
-import { WEBPACK_DEV_SERVER_ORIGIN } from "./constants";
+import router from "@/router";
+import { WEBPACK_DEV_SERVER_ORIGIN } from "@/constants";
 
 const port = 8080;
 const app = express();

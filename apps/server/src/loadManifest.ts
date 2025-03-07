@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { memoize } from "lodash";
-import { WEBPACK_DEV_SERVER_ORIGIN } from "./constants";
+import { WEBPACK_DEV_SERVER_ORIGIN } from "@/constants";
 
 type ClientManifest = {
     entrypoints: {
