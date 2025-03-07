@@ -20,14 +20,14 @@ module.exports = (env = {}) => {
         entry: path.resolve(__dirname, "src/index.tsx"),
         mode: "production",
         devtool: "source-map",
+        resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.json'],
+        },
         output: {
-            path: process.env.STATIC_ASSETS_PATH ?? path.resolve(__dirname, "dist"),
+            path: process.env.OUTPUT_PATH ?? path.resolve(__dirname, "dist"),
             filename: "[name].[contenthash].js",
             hashDigestLength: 8,
             clean: true
-        },
-        resolve: {
-            extensions: ['.ts', '.tsx', '.js', '.json'],
         },
         module: {
             rules: [

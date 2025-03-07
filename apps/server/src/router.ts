@@ -3,10 +3,9 @@ import loadManifest from "./loadManifest";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    const script = process.env.NODE_ENV === "development"
-        ? "/bundle.js"
-        : loadManifest().entrypoints.main.assets.js[0];
+router.get("/", async (req, res) => {
+    const manifest = await loadManifest();
+    const scripts = manifest.entrypoints.main.assets.js;
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
@@ -14,7 +13,7 @@ router.get("/", (req, res) => {
     res
         .status(200)
         .send(`
-            <script src="${script}" type="text/javascript" defer></script>
+            ${scripts.map((src) => `<script src="${src}" type="text/javascript" defer></script>`).join("\n")}
             <div id="root"></div>
         `);
 })

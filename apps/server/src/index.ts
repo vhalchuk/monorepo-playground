@@ -1,6 +1,7 @@
 import express from "express";
 import type { Request, Response } from 'express';
 import router from "./router";
+import {WEBPACK_DEV_SERVER_ORIGIN} from "./constants";
 
 const port = 8080;
 const app = express();
@@ -12,7 +13,7 @@ if (process.env.NODE_ENV === "development") {
     const { createProxyMiddleware } = await import("http-proxy-middleware");
 
     const webpackDevServerProxy = createProxyMiddleware<Request, Response>({
-      target: 'http://localhost:4000',
+      target: WEBPACK_DEV_SERVER_ORIGIN,
       changeOrigin: true,
     });
 
