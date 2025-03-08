@@ -1,5 +1,6 @@
 TODO:
 
+- [ ] Investigate Nx & Learna
 - [ ] Use `esbuild`/`swc` instead of `babel` for typescript compilation
 - [ ] Add eslint
 - [x] Move vendors to a separate chunk for webpack development to make HMR faster
