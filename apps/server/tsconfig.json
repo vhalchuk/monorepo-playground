@@ -1,3 +1,16 @@
 {
-  "extends": "../../tsconfig.json"
+    "extends": "../../tsconfig.json",
+
+    "compilerOptions": {
+        /* If NOT transpiling with TypeScript: */
+        "module": "preserve",
+        "noEmit": true,
+
+        /* If your code doesn't run in the DOM: */
+        "lib": ["es2022"],
+
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    }
 }

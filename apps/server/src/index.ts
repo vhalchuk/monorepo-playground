@@ -1,32 +1,28 @@
 import express from "express";
-import router from "./router";
-import { clientDist } from "./paths";
-import webpack from "webpack";
-import webpackDevMiddleware from "webpack-dev-middleware";
-import webpackHotMiddleware from "webpack-hot-middleware";
+import type { Request, Response } from "express";
+import router from "@/router";
+import { WEBPACK_DEV_SERVER_ORIGIN } from "@/constants";
 
 const port = 8080;
 const app = express();
 
-app.use(express.static(clientDist))
+app.use(express.static("public"));
 
 if (process.env.NODE_ENV === "development") {
-    // @ts-ignore
-    const clientConfig = require("../../client/webpack.config.dev.js");
-    const compiler = webpack(clientConfig);
-    app.use(
-        webpackDevMiddleware(compiler, {
-        publicPath: "/",
-        stats: { colors: true }
-      })
-    );
-    app.use(webpackHotMiddleware(compiler, {
-        path: "/__webpack_hmr"
-    }));
+    (async () => {
+        const { createProxyMiddleware } = await import("http-proxy-middleware");
+
+        const webpackDevServerProxy = createProxyMiddleware<Request, Response>({
+            target: WEBPACK_DEV_SERVER_ORIGIN,
+            changeOrigin: true,
+        });
+
+        app.use(webpackDevServerProxy);
+    })();
 }
 
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });

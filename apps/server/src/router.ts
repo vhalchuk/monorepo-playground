@@ -1,27 +1,22 @@
 import { Router } from "express";
-import { now } from "lodash";
 import { foo } from "@my-repo/shared";
-import getClientManifest from "./getClientManifest";
+import loadManifest from "@/loadManifest";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    console.log("Request received at:", now());
-    console.log("shared foo()", foo())
+router.get("/", async (req, res) => {
+    const manifest = await loadManifest();
+    const scripts = manifest.entrypoints.main.assets.js;
 
-    const script = process.env.NODE_ENV === "production"
-        ? getClientManifest().entrypoints.main.assets.js[0]
-        : "bundle.js";
+    console.log(foo());
 
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
+    res.setHeader("Content-Type", "text/html");
 
-    res
-        .status(200)
-        .send(`
-            <script src="${script}" type="text/javascript" defer></script>
+    res.status(200).send(`
+            ${scripts.map((src) => `<script src="${src}" type="text/javascript" defer></script>`).join("\n")}
             <div id="root"></div>
-        `.trim());
-})
+        `);
+});
 
 export default router;
