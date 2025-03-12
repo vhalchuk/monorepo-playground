@@ -5,7 +5,7 @@
         "clean:dist": "rimraf ./dist",
         "clean:public": "rimraf ./public",
         "clean": "npm run clean:dist && npm run clean:public",
-        "build": "npm run clean:dist && babel src --extensions '.ts' --out-dir dist",
+        "build": "babel src --extensions '.ts' --out-dir dist",
         "start": "cross-env NODE_ENV=production node ./dist/index.js",
         "type-check": "tsc --noEmit"
     },
@@ -19,6 +19,7 @@
         "@types/node": "~22.13.0",
         "@types/express": "^4.17.21",
         "@types/lodash": "^4.17.12",
+        "rimraf": "~6.0.0",
         "typescript": "^5.8.2",
         "tsx": "^4.19.3",
         "@babel/core": "^7.26.9",

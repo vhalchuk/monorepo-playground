@@ -1,6 +1,8 @@
 const path = require("node:path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
+const { merge } = require("webpack-merge");
+const { clientRootPath, baseConfig } = require("./base.cjs");
 
 module.exports = (env = {}) => {
     const plugins = [new WebpackAssetsManifest({ entrypoints: true })];
@@ -14,21 +16,14 @@ module.exports = (env = {}) => {
         );
     }
 
-    return {
-        entry: path.resolve(__dirname, "src/index.tsx"),
+    return merge(baseConfig, {
+        entry: path.join(clientRootPath, "src/browser-entry.tsx"),
         mode: "production",
         devtool: "source-map",
-        resolve: {
-            extensions: [".ts", ".tsx", ".js", ".json"],
-            alias: {
-                "@/*": path.resolve(__dirname, "src/*"),
-            },
-        },
         output: {
-            path: process.env.OUTPUT_PATH ?? path.resolve(__dirname, "dist"),
+            path: process.env.BROWSER_OUTPUT_PATH ?? path.resolve(clientRootPath, "dist"),
             filename: "[name].[contenthash].js",
             hashDigestLength: 8,
-            clean: true,
         },
         module: {
             rules: [
@@ -58,5 +53,5 @@ module.exports = (env = {}) => {
             ],
         },
         plugins,
-    };
+    });
 };

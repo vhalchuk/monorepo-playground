@@ -22,12 +22,7 @@ async function loadManifest(): Promise<ClientManifest> {
         return manifest as ClientManifest;
     }
 
-    const manifestPath = path.resolve(
-        process.cwd(),
-        "public",
-        "assets-manifest.json"
-    );
-    const data = await fs.readFile(manifestPath, "utf-8");
+    const data = await fs.readFile(process.env.MANIFEST_PATH!, "utf-8");
     return JSON.parse(data);
 }
 

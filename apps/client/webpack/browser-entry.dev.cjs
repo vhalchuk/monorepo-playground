@@ -1,24 +1,15 @@
 const path = require("node:path");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
+const { merge } = require("webpack-merge");
+const { clientRootPath, baseConfig } = require("./base.cjs");
 
-module.exports = {
-    entry: path.resolve(__dirname, "src/index.tsx"),
+module.exports = merge( baseConfig, {
+    entry: path.join(clientRootPath, "src/browser-entry.tsx"),
     mode: "development",
     devtool: "inline-source-map",
     output: {
         publicPath: "/",
         filename: "[name].js",
-    },
-    resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"],
-        alias: {
-            "@/*": path.resolve(__dirname, "src/*"),
-            /* resolves any package's source code within <root>/packages directory */
-            "@my-repo/*": path.resolve(
-                __dirname,
-                "../../packages/*/src/index.ts"
-            ),
-        },
     },
     module: {
         rules: [
@@ -54,4 +45,4 @@ module.exports = {
         port: 4000,
         hot: true,
     },
-};
+});
