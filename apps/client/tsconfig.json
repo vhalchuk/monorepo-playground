@@ -10,7 +10,11 @@
         "lib": ["es2022", "dom", "dom.iterable"],
 
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@my-repo/shared": ["../../packages/shared/src/index.ts"]
         }
-    }
+    },
+    "include": [
+        "src",
+    ]
 }

@@ -21,7 +21,11 @@ export const apiSlice = createApi({
 
 export const { useGetPostsQuery } = apiSlice;
 
+const preloadedState =
+    typeof window === "undefined" ? undefined : window.__PRELOADED_STATE__;
+
 export const store = configureStore({
+    preloadedState,
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
     },

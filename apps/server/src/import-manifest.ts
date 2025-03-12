@@ -13,7 +13,7 @@ type ClientManifest = {
     };
 };
 
-async function loadManifest(): Promise<ClientManifest> {
+async function importManifest(): Promise<ClientManifest> {
     if (process.env.NODE_ENV === "development") {
         const response = await fetch(
             `${WEBPACK_DEV_SERVER_ORIGIN}/assets-manifest.json`
@@ -26,6 +26,6 @@ async function loadManifest(): Promise<ClientManifest> {
     return JSON.parse(data);
 }
 
-const memoizedLoadManifest = memoize(loadManifest);
+const memoizedImportManifest = memoize(importManifest);
 
-export default memoizedLoadManifest;
+export default memoizedImportManifest;

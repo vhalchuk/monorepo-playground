@@ -16,10 +16,5 @@
         "strict": true,
         "noUncheckedIndexedAccess": true,
         "noImplicitOverride": true,
-
-        "paths": {
-            /* Resolve to packages' source code: */
-            "@my-repo/shared": ["packages/shared/src/index.ts"]
-        }
     }
 }

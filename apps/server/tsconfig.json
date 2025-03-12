@@ -10,7 +10,8 @@
         "lib": ["es2022"],
 
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@my-repo/shared": ["../../packages/shared/src/index.ts"]
         }
     }
 }
